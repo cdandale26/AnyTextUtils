@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/AnyTextutlis/static/js/main.22f88415.js",
-    "index.html": "/AnyTextutlis/index.html",
-    "main.22f88415.js.map": "/AnyTextutlis/static/js/main.22f88415.js.map"
+    "main.js": "/AnyTextutils/static/js/main.22f88415.js",
+    "index.html": "/AnyTextutils/index.html",
+    "main.22f88415.js.map": "/AnyTextutils/static/js/main.22f88415.js.map"
   },
   "entrypoints": [
     "static/js/main.22f88415.js"
