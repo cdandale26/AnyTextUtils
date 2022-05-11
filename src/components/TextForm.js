@@ -7,52 +7,89 @@ export default function TextForm(props) {
 
     /** Function to convert the text in the text area to lowercase */
     const handleLowerClick = () =>{
+        if(text.length>0){
         let newText = text.toLowerCase();
         setText(newText);
+            props.showAlert('converted to Lowercase','success');
+        }else{
+            props.showAlert('No text available for conversion.Please enter text to convert to lowercase','warning');
+        }
     }
 
     /**Function to convert the text in the text area to uppercase */
     const handleUpperClick = () => {
-        let newText = text.toUpperCase();
-        setText(newText);
+        if(text.length>0){
+            let newText = text.toUpperCase();
+            setText(newText);
+            props.showAlert('Converted to Uppercase.','success');
+        }else{
+            props.showAlert('No text available for conversion.Please enter text to convert to uppercase','warning');
+        }
     }
 
     /**Function to remove the extra spaces in between the text so as to make the text more readable */
     const handleRemoveSpaceClick =() => {
+        if(text.length>0){
         let newText = text.split(/[ ]+/);
         console.log('.......'+newText);
         setText(newText.join(' '));
         console.log(text);
+        props.showAlert('Removed extraspaces from the text.','success');
+        }else{
+            props.showAlert('No text available.Please enter text to remove extra spaces..','warning');
+        }
     }
 
     /**Function to copy the entire text from the text area into clipboard  */
     const handleCopyClick = () =>{
+        if(text.length>0){
         let text = document.getElementById('exampleFormControlTextarea1');
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert('Text is copied to the clipboard.','success');
+        }else{
+            props.showAlert('Cannot copy empty text.Please enter text to be copied!','warning');
+        }
     }
 
     /**Function to clear the textarea */
     const handleClearClick = () =>{
+        if(text.length>0){
         let newText = '';
         setText(newText);
+        props.showAlert('Text area is cleared.','success');
+        }else{
+            props.showAlert('Text area is already clear.','warning');
+        }
     }
 
     /**Fuction to read out the text that is currently present in the textarea */
     const handleSpeakClick = () => {
+        if(text.length>0){
         if(text){
             let msg = new SpeechSynthesisUtterance();
             msg.text = text;
-            window.speechSynthesis.speak(msg);}
+            window.speechSynthesis.speak(msg);
+            props.showAlert('Reading the text...','success');  
+            
+        }
+        }else{
+            props.showAlert('Cannot read nothing.. :P. Please enter some text!','warning');
+        }
     }
 
     /**Function to change the color in the text area randomly. This is fun functionality specific to a page */
     const handleColorClick = () => {
-        const colors = ['sandybrown', 'mediumaquamarine', 'coral','indianred','dodgerblue','blueviolet','seagreen']
-        let randomcolor = Math.random()*10 ;
-        let color = (Math.ceil(randomcolor))%7;
-        document.querySelector('#exampleFormControlTextarea1').style.background = 'rgb(33,37,41, 10%)';
-        document.querySelector('#exampleFormControlTextarea1').style.color = colors[color];    
+        if(text.length>0){
+            const colors = ['sandybrown', 'mediumaquamarine', 'coral','indianred','dodgerblue','blueviolet','seagreen']
+            let randomcolor = Math.random()*10 ;
+            let color = (Math.ceil(randomcolor))%7;
+            document.querySelector('#exampleFormControlTextarea1').style.background = 'rgb(33,37,41, 10%)';
+            document.querySelector('#exampleFormControlTextarea1').style.color = colors[color];  
+            props.showAlert('Text color changed','success'); 
+        }else{
+            props.showAlert('Cannot change color of empty text.Please enter text to change color.','warning');
+        }         
     }
 
     /**Function to record any changes in the text area and use these changes to update the text variable 
