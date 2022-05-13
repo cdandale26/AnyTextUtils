@@ -1,5 +1,6 @@
  import React from 'react';
  import PropTypes from 'prop-types';
+
  
  const Navbar = (props) => {
    return (
@@ -14,6 +15,7 @@
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             </ul> 
           </div> */}
+          
           <div className={`form-check form-switch text-${props.commonProps.mode === 'light'?'dark':'light'}`}>
             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={props.commonProps.toggleMode}/>
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.commonProps.btnText}</label>
