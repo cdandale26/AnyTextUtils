@@ -27,7 +27,7 @@ export default function TextForm(props) {
     const handleRemoveSpaceClick =() => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(' '));
-        props.showAlert('Removed lots of extraspaces from the text.','success');     
+        props.showAlert('Removed extra spaces from the text.','success');     
     }
 
     /**Function to copy the entire text from the text area into clipboard  */
