@@ -30,11 +30,9 @@ export default function TextForm(props) {
     /**Function to remove the extra spaces in between the text so as to make the text more readable */
     const handleRemoveSpaceClick =() => {
         if(text.length>0){
-        let newText = text.split(/[ ]+/);
-        console.log('.......'+newText);
-        setText(newText.join(' '));
-        console.log(text);
-        props.showAlert('Removed extraspaces from the text.','success');
+            let newText = text.split(/[ ]+/);
+            setText(newText.join(' '));
+            props.showAlert('Removed lots of extraspaces from the text.','success'); 
         }else{
             props.showAlert('No text available.Please enter text to remove extra spaces..','warning');
         }

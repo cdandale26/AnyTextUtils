@@ -24,14 +24,18 @@ function App(props) {
     if(mode==='light'){
       setMode('dark');
       setBtnText('Enable Light Mode');
-      document.body.style.backgroundColor ='black';
+      document.body.style.backgroundColor ='#0d0d0d';
       document.body.style.color ='#e6e6e6';
+      document.getElementById('exampleFormControlTextarea1').style.backgroundColor='#0d0d0d';
+      document.getElementById('exampleFormControlTextarea1').style.color='#f2f2f2';
       
     }else{
       setMode('light');
       setBtnText('Enable Dark Mode');
       document.body.style.backgroundColor ='white';
       document.body.style.color ='#262626';
+      document.getElementById('exampleFormControlTextarea1').style.backgroundColor='white';
+      document.getElementById('exampleFormControlTextarea1').style.color='#262626';
      
     }
   }
